@@ -5,4 +5,6 @@
     <string name="e_mail">e-mail</string>
     <string name="salvar">Salvar</string>
     <string name="remover">Remover</string>
+    <string name="telefone_fixo">Telefone fixo</string>
+    <string name="telefone_celular">Telefone celular</string>
 </resources>

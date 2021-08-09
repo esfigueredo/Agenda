@@ -1,4 +1,4 @@
-package com.example.agenda.ui.ui;
+package com.example.agenda.ui.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,24 +12,25 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agenda.R;
-import com.example.agenda.dao.AlunoDAO;
+import com.example.agenda.database.dao.AlunoDAO;
 import com.example.agenda.model.Aluno;
+import com.example.agenda.ui.ui.adapter.ListaAlunosAdapter;
+import com.example.agenda.ui.ui.ListaAlunosView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import static com.example.agenda.ui.ui.ConstantesActivities.CHAVE_ALUNO;
+import static com.example.agenda.ui.ui.activity.ConstantesActivities.CHAVE_ALUNO;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
     public static final String TITULO_APPBAR = "Lista de alunos";
-    private final AlunoDAO dao = new AlunoDAO();
-    private ListaAlunosAdapter adapter;
-    private final ListaAlunosView listaAlunosView = new ListaAlunosView(this);
+    private ListaAlunosView listaAlunosView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos);
         setTitle(TITULO_APPBAR);
+        listaAlunosView = new ListaAlunosView(this);
         configuraFabNovoAluno();
         configuraLista();
     }
